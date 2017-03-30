@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <mate charset="UTF-8"/>
+        <title>插入表格</title>
+    </head>
+    <body>
+        <table border="1" cellspacing="0">
+            <tr>
+                <td width="79">用户名：</td>
+                <td width="309"><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password"/></td>
+            </tr>
+            <tr>
+                <td>确认密码:</td>
+                <td><input type="password"/></td>
+            </tr>
+            <tr>
+                <td>性别:</td>
+                <td><input type="radio" value="male" name="sex" checked="checked"/>男
+                <input type="radio" value="female" name="sex"/>女
+                </td>
+            </tr>
+            <tr>
+                <td>生日:</td>
+                <td>
+                <select name="calendar">
+                   <option value="one" selected="selected">公历</option>
+                   <option value="two">阴历</option>
+                </select>
+                <select name="year">
+                    <option value="one" selected="selected">年</option>
+                    <option value="two">1995</option>
+                    <option value="three">1996</option>
+                    <option value="four">1997</option>
+                    <option value="five">1998</option>
+                    <option value="six">1999</option>
+                    <option value="seven">2000</option>
+                </select>
+                <select name="month">
+                    <option value="one" selected="selected">月</option>
+                    <option value="two">1</option>
+                    <option value="three">2</option>
+                    <option value="four">3</option>
+                    <option value="five">4</option>
+                    <option value="six">5</option>
+                    <option value="seven">6</option>
+                    <option value="eight">7</option>
+                    <option value="nine">8</option>
+                    <option value="ten">9</option>
+                    <option value="eleven">10</option>
+                    <option value="twelf">11</option>
+                    <option value="thirteen">12</option>
+                </select>
+                <select name="date">
+                    <option value="one" selected="selected">日</option>
+                    <option value="two">1</option>
+                    <option value="three">2</option>
+                    <option value="four">3</option>
+                    <option value="five">4</option>
+                    <option value="six">5</option>
+                    <option value="seven">6</option>
+                    <option value="eight">7</option>
+                    <option value="nine">8</option>
+                    <option value="ten">9</option>
+                    <option value="eleven">10</option>
+                    <option value="twelf">11</option>
+                    <option value="thirteen">12</option>
+                    <option value="fourteen">13</option>
+                    <option value="fifteen">14</option>
+                    <option value="sixteen">15</option>
+                    <option value="seventeen">16</option>
+                    <option value="eighteen">17</option>
+                    <option value="ninteen">18</option>
+                    <option value="twenty">19</option>
+                    <option value="twenty one">20</option>
+                    <option value="twenty two">21</option>
+                    <option value="twenty three">22</option>
+                    <option value="twenty four">23</option>
+                    <option value="twenty five">24</option>
+                    <option value="twenty six">25</option>
+                    <option value="twenty seven">26</option>
+                    <option value="twenty eight">27</option>
+                    <option value="twenty nine">28</option>
+                    <option value="thirty">29</option>
+                    <option value="thirty one">30</option>
+                    <option value="thirty two">31</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>所在地:</td>
+                <td>
+                <select name="where">
+                    <option value="one" selected="selected">中国</option>
+                    <option value="two">美国</option>
+                </select>
+                <select  name="province">
+                    <option value="one" selected="selected">河北省</option>
+                    <option value="two">山东省</option>
+                </select>
+                <select name="city">
+                    <option value="one" selected="selected">石家庄</option>
+                    <option value="two">沧州</option>
+                    <option value="three">衡水</option>
+                    <option value="four">保定</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>验证码:</td>
+                <td><input type="text"/><img src="num.jpg" name="img" height="16px" weith="5px"/></td>
+            </tr>
+            <tr>
+                <td>证件类型:</td>
+                <td>
+                <select name="certificate">
+                    <option value="one" selected="selected">身份证</option>
+                    <option value="two">其它</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>证件号:</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>爱好:</td>
+                <td>
+                <input type="checkbox" value="hobby1" name="hobby"/>
+                音乐
+                <input type="checkbox" value="hobby2" name="hobby" checked="checked"/>
+                读书
+                <input type="checkbox" value="hobby3" name="hobby" checked="checked"/>
+                跳舞
+                <input type="checkbox" value="hobby4" name="hobby"/>
+                下棋
+                <input type="checkbox" value="hobby5" name="hobby"/>
+                其他
+                </td>
+            </tr>
+            <tr>
+                <td>说明:</td>
+                <td ><textarea rows="5" cols="30" ></textarea></td>
+            </tr>
+            <tr>
+                <td>上传头像</td>
+                <td><input type="file" name="files"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" name="sub"/>
+                 <input type="reset" name="reset" />
+                 <input type="button" name="button" value="按钮"/>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
