@@ -1,0 +1,41 @@
+*{margin:0px;text-decoration:none;list-style:none;}
+	.nav{width:1300px;margin:0 auto;}
+	.top-top{width:1300px;height:300px;background-image:url(../images/top-top1.jpg);background-repeat:no-repeat;}
+	.logo{width:200;height:80px;margin-left:120px;padding-top:210px;}
+	.top-list{width:1300px;height:50px;margin-top:0px;margin-bottom:5px;background-color:#FFC0CB;}
+	.top-list ul{list-style:none;height:50px;width:900px;}
+	.top-list ul li{float:left;width:140px;margin-top:14px;}
+	.top-list ul li a{color:white;}
+	.top-list ul li a:hover{color:#00CED1;}
+	.list{float:left;}
+	.nav_search{ width:200px;height:21px;float:left;margin-left:100px;margin-top:14px;}
+	.nav_search .search1{width:140px;height:21px;float:left;background-color:#f8f5ee;border:1px  solid  #f8f5ee;}
+	.nav_search .search2{width:44px;height:21px;float:left;background-color:#000;color:#fff;border:1px  solid  #f8f5ee;}
+	.content{width:1300px;}
+	.content-top{height:400px;}
+	.personal-picture{width:600px;height:400px;background-image:url(../images/personal.jpg);float:left;background-repeat:no-repeat;}
+	.personal-introduce{width:600px;height:400px;float:left;background-image:url(../images/jieshao.jpg);}
+	.me{margin-top:70px;margin-left:150px;}
+	.fengexian{float:left;}
+	.personal-introduce ul{margin-top:80px;margin-left:50px;}
+	.xian{width:1300px;height:50px;}
+	.conten-bottom{width:1300px;height:450px;}
+	.conten-bottom-image1{display:block;float:left;}
+	.content-bottom-list{float:left;}
+	.content-bottom-list ul li{line-height:60px;}
+	.content-bottom-list ul li a:hover{color:#FF1493;}
+	.content-bottom-list ul{margin-left:50px;}
+	.content-bottom-list ul li a{font-size:20px;color:#FFD700;}
+	.fengcai1{float:left;margin-left:55px;margin-top:5px;background-image:url(../images/no1.jpg);background-repeat:no-repeat;width:400px;height:450px;}
+	.fengcai2{float:left;margin-left:55px;margin-top:5px;background-image:url(../images/no2.jpg);background-repeat:no-repeat;width:400px;height:430px;}
+	.smile h1{color:#FA8072;}
+	.smile p{color:#FA8072;}
+	.smile{width:350px;line-height:35px;margin-top:20px;margin-left:30px;}
+	.beautiful h2{color:#87CEEB;}
+	.beautiful p{color:#87CEEB;}
+	.beautiful{width:330px;line-height:29px;margin-top:20px;margin-left:35px;}
+	.bottom{width:1300px;height:100px;text-align:center;}
+	.bottom h1{width:1300px;height:100px;margin-top:460px;}
+	.bottom h1 a{color:#00FF7F;}
+	.copyright{color:white;height:60px;text-align:center;background-image:url(../images/foot_bg.gif);}
+	.copyright1{line-height:20px;margin-top:8px;}
