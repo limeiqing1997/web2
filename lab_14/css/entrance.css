@@ -1,0 +1,18 @@
+*{margin:0px;text-decoration:none;list-style:none;}
+	.nav{width:1300px;margin:0 auto;}
+	.top-top{width:1300px;height:300px;background-image:url(../images/top-top1.jpg);background-repeat:no-repeat;}
+	.logo{width:200;height:80px;margin-left:120px;padding-top:210px;}
+	.top-list{width:1300px;height:50px;margin-top:0px;margin-bottom:5px;background-color:#FFC0CB;}
+	.top-list ul{list-style:none;height:50px;width:900px;}
+	.top-list ul li{float:left;width:140px;margin-top:14px;}
+	.top-list ul li a{color:white;text-decoration:none;}
+	.top-list ul li a:hover{color:#00CED1;}
+	.list{float:left;}
+	.nav_search{ width:200px;height:21px;float:left;margin-left:100px;margin-top:14px;}
+	.nav_search .search1{width:140px;height:21px;float:left;background-color:#f8f5ee;border:1px  solid  #f8f5ee;}
+	.nav_search .search2{width:44px;height:21px;float:left;background-color:#000;color:#fff;border:1px  solid  #f8f5ee;}
+	.content{width:1300px;height:600px;background-image:url(../images/conten.jpg);}
+	.content-content{margin-left:350px;padding-top:200px;background-image:url(../images/entrance.gif);width:600px;height:580px;background-repeat:no-repeat;padding-left:200px;}
+
+	.copyright{color:white;height:60px;text-align:center;background-image:url(../images/foot_bg.gif);}
+	.copyright1{line-height:20px;margin-top:0px;}
