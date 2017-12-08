@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ聊天</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul,ol,li{
+			list-style: none;
+		}
+		.clearFix:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		#wrap{
+			width: 678px;
+			height: 615px;
+			margin: 10px auto;
+			border: 1px solid #000; 
+			background-color: #f8f7f4;
+		}
+		/*顶部样式*/
+		.header{
+			height: 50px;
+		}
+		.header>span{
+			float: left;
+			margin: 20px 0 0 12px;
+			line-height: 30px;
+		}
+		.headImg{
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background: url(img/head.jpg) center center;
+			background-size: cover;
+		}
+		/*导航样式*/
+		.nav{
+			height: 40px;
+			line-height: 37px;
+			border-bottom: 1px solid #e2e1df;
+		}
+		.nav>li{
+			float: left;
+			margin: 0 8px;
+			padding: 0 4px;
+			cursor: default;
+			color: #767676;
+		}
+		.nav>li:last-child:after{
+			content: "▼";
+			font-size: 10px;
+			margin-left: 5px;
+		}
+		.nav>li:hover{
+			color: #000;
+		}
+		.nav>.active{
+			color: #000;
+			border-bottom: 3px solid #009bdb;
+		}
+		/*底部主体样式*/
+		.footer>div{
+			float: left;
+		}
+		.notice{
+			width: 200px;
+			height: 525px;
+			border-left: 1px solid #e2e1df;
+
+		}
+		/*消息框样式*/
+		.talk{
+			width: 476px;
+		}
+		.talkMsg{
+			width: 476px;
+			height: 400px;
+			overflow-y: auto;
+			border-bottom: 1px solid #e2e1df;
+			position: relative;
+			z-index: 100;
+		}
+		.time{
+			text-align: center;
+			color: #808080;
+			font-size: 10px;
+			line-height: 30px;
+		}
+		.talkInp{
+			height: 124px;
+		}
+		.myHead{
+			float: right;
+			margin-right: 12px;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background: url(img/myHead.jpg) center center;
+			background-size: cover;
+		}
+		.content{
+			float: right;
+		}
+		.conText{
+			padding: 10px;
+			max-width: 380px;
+			line-height: 22px;
+			border-radius: 8px;
+			margin-right: 10px;
+			font-size: 12px;
+			float: left;
+			background-color: #dfdddb;
+		}
+		.area{
+			width: 456px;
+			padding: 5px 10px;
+			height: 50px;
+			resize: none;
+			outline: none;
+			border: none;
+			background-color: #f8f7f4;
+		}
+		.btn{
+			float: right;
+		}
+		.btn li{
+			font-weight: bold;
+			cursor: default;
+			display: block;
+			float: left;
+			height: 24px;
+			line-height: 24px;
+			padding: 0 16px;
+			margin-right: 12px;
+			border-radius: 4px;
+			font-size: 12px;
+			background-color: #dbd1be;
+		}
+		.send{
+			position: relative;
+		}
+		.send:after{
+			content: "▼";
+			color: #6e695f;
+			margin-left: 15px;
+		}
+		.warning{
+			width: 150px;
+			height: 50px;
+			border: 1px solid lightblue;
+			border-radius: 8px;
+			padding: 0 5px;
+			position: absolute;
+			left: -70px;
+			top: -55px;
+			display: none;
+		}
+		.menu{
+			border:1px solid;
+			width: 130px;
+			height: 144px;
+			position: absolute;
+			display:none;
+			background-color: #fff;
+		}
+		.menu .left{
+			width: 30px;
+			height: 144px;
+			background-color: #ecedee;
+			text-align: center;
+			float: left;
+			z-index: 100;
+		}
+		.font{margin-top: 80px;}
+		.right{
+			float:left;
+			position: absolute;
+			z-index: 10;
+			width: 132px;
+			height: 146px;
+			
+		}
+		.right ul{
+			list-style: none;
+		}
+		.right ul li{
+			color:black;
+			font-size: 12px;
+			padding-left: 40px;
+		}
+		.right ul li a{
+			color:black;
+			text-decoration: none;
+		}
+		.right-top{
+			width: 130px;
+			height: 48px;
+		}
+		.right-top ul{
+			line-height:24px;
+		}
+		.right-center{
+			border-top: 2px  #ecedee solid;
+			border-bottom: 2px  #ecedee solid;
+			width: 130px;
+			height: 72px;
+		}
+		.right-center ul{
+			line-height:24px;
+		}
+		.right-bottom{
+			width: 132px;
+			height: 20px;
+		}
+		.right-bottom ul{
+			line-height:20px;
+		}
+		#copy{
+			color:#c6cbc9;
+		}
+		.a:hover{
+			background-color: #009bdb;
+		}
+		.font{
+			margin-top: 75px;
+			position: relative;
+		}
+		#s{
+			color: #818c97;
+		}
+		.smile li{
+			float: left;
+		}
+		.fuhao{
+			width: 200px;
+			height: 126px;
+			background-color: #fff;
+			position: relative;
+			margin-top:130px;
+			display:none;
+			z-index: 10;
+			float: left;
+		}
+		.biaoqing{
+			float: left;
+			width: 40px;
+			height: 30px;
+			text-align: center;
+			padding-top: 12px;
+		}
+		.biaoqing:hover{
+			background-color:#f3f3f4;
+		}
+		.all-fuhao{
+			width: 473px;
+			height:254px;
+			border:1px solid;
+			background-color: #fff;
+			position: relative;
+			z-index: 100;
+			overflow:hidden;
+			display:none;
+			z-index: 100;
+		}
+		.biaoqing1{
+			float: left;
+			width: 41px;
+			height: 30px;
+			text-align: center;
+			padding-top: 12px;
+		}
+		.biaoqing1:hover{
+			background-color: #f3f3f4;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="header">
+			<span class="headImg"></span>
+			<span>三四班一家亲</span>
+		</div>
+		<ul class="nav">
+			<li class="active">聊天</li>
+			<li>公告</li>
+			<li>相册</li>
+			<li>文件</li>
+			<li>活动</li>
+			<li>设置</li>
+		</ul>
+		<div class="footer">
+			<div class="talk">
+				<div class="talkMsg">
+					<div class="menu">
+						<div class="left">
+							<div class="font">√</div>
+						</div>
+						<div class="right">
+							<div class="right-top">
+								<ul>
+									<li id="copy">复制(C)</li>
+									<li class="a"><a href="#">全部选择(A)</a></li>
+								</ul>
+							</div>
+							<div class="right-center">
+								<ul>
+									<li  class="a"><a href="#">显示比例&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="s">▶</span></a></li>
+									<li  class="a"><a href="#">使用多彩气泡</a></li>
+									<li  class="a"><a href="#">设置多彩气泡</a></li>
+								</ul>
+							</div>
+							<div class="right-bottom">
+								<ul>
+									<li  class="a"><a href="#">清屏</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<ul id="msgBox">
+						<li class="clearFix">
+							<p class="time">2017/10/12 16:59:32</p>
+							<p class="content">
+								<span class="conText">好好学习</span>
+								<span class="myHead"></span>
+							</p>
+						</li>
+						<li class="clearFix">
+							<p class="time">2017/10/12 16:59:32</p>
+							<p class="content">
+								<span class="conText">天天向上</span>
+								<span class="myHead"></span>
+							</p>
+						</li>
+					</ul>
+					<div class="fuhao">
+						<div class="biaoqing"><img src="img/1.gif"></div>
+						<div class="biaoqing"><img src="img/2.gif"></div>
+						<div class="biaoqing"><img src="img/3.gif"></div>
+						<div class="biaoqing"><img src="img/4.gif"></div>
+						<div class="biaoqing"><img src="img/5.gif"></div>
+						<div class="biaoqing"><img src="img/6.gif"></div>
+						<div class="biaoqing"><img src="img/7.gif"></div>
+						<div class="biaoqing"><img src="img/8.gif"></div>
+						<div class="biaoqing"><img src="img/9.gif"></div>
+						<div class="biaoqing"><img src="img/10.gif"></div>
+						<div class="biaoqing"><img src="img/11.gif"></div>
+						<div class="biaoqing"><img src="img/12.gif"></div>
+						<div class="biaoqing"><img src="img/13.gif"></div>
+						<div class="biaoqing"><img src="img/14.gif"></div>
+						<div class="biaoqing"><img src="img/15.gif"></div>
+					</div>
+					<div class="all-fuhao">
+						<div class="biaoqing1"><img src="img/1.gif"></div>
+						<div class="biaoqing1"><img src="img/2.gif"></div>
+						<div class="biaoqing1"><img src="img/3.gif"></div>
+						<div class="biaoqing1"><img src="img/4.gif"></div>
+						<div class="biaoqing1"><img src="img/5.gif"></div>
+						<div class="biaoqing1"><img src="img/6.gif"></div>
+						<div class="biaoqing1"><img src="img/7.gif"></div>
+						<div class="biaoqing1"><img src="img/8.gif"></div>
+						<div class="biaoqing1"><img src="img/9.gif"></div>
+						<div class="biaoqing1"><img src="img/10.gif"></div>
+						<div class="biaoqing1"><img src="img/11.gif"></div>
+						<div class="biaoqing1"><img src="img/12.gif"></div>
+						<div class="biaoqing1"><img src="img/13.gif"></div>
+						<div class="biaoqing1"><img src="img/14.gif"></div>
+						<div class="biaoqing1"><img src="img/15.gif"></div>
+						<div class="biaoqing1"><img src="img/16.gif"></div>
+						<div class="biaoqing1"><img src="img/17.gif"></div>
+						<div class="biaoqing1"><img src="img/18.gif"></div>
+						<div class="biaoqing1"><img src="img/19.gif"></div>
+						<div class="biaoqing1"><img src="img/20.gif"></div>
+						<div class="biaoqing1"><img src="img/21.gif"></div>
+						<div class="biaoqing1"><img src="img/22.gif"></div>
+						<div class="biaoqing1"><img src="img/23.gif"></div>
+						<div class="biaoqing1"><img src="img/24.gif"></div>
+						<div class="biaoqing1"><img src="img/25.gif"></div>
+						<div class="biaoqing1"><img src="img/26.gif"></div>
+						<div class="biaoqing1"><img src="img/27.gif"></div>
+						<div class="biaoqing1"><img src="img/28.gif"></div>
+						<div class="biaoqing1"><img src="img/29.gif"></div>
+						<div class="biaoqing1"><img src="img/30.gif"></div>
+						<div class="biaoqing1"><img src="img/31.gif"></div>
+						<div class="biaoqing1"><img src="img/32.gif"></div>
+						<div class="biaoqing1"><img src="img/33.gif"></div>
+						<div class="biaoqing1"><img src="img/34.gif"></div>
+						<div class="biaoqing1"><img src="img/35.gif"></div>
+						<div class="biaoqing1"><img src="img/36.gif"></div>
+						<div class="biaoqing1"><img src="img/37.gif"></div>
+						<div class="biaoqing1"><img src="img/38.gif"></div>
+						<div class="biaoqing1"><img src="img/39.gif"></div>
+						<div class="biaoqing1"><img src="img/40.gif"></div>
+						<div class="biaoqing1"><img src="img/41.gif"></div>
+						<div class="biaoqing1"><img src="img/42.gif"></div>
+						<div class="biaoqing1"><img src="img/43.gif"></div>
+						<div class="biaoqing1"><img src="img/44.gif"></div>
+						<div class="biaoqing1"><img src="img/45.gif"></div>
+						<div class="biaoqing1"><img src="img/46.gif"></div>
+						<div class="biaoqing1"><img src="img/47.gif"></div>
+						<div class="biaoqing1"><img src="img/48.gif"></div>
+						<div class="biaoqing1"><img src="img/49.gif"></div>
+						<div class="biaoqing1"><img src="img/50.gif"></div>
+						<div class="biaoqing1"><img src="img/51.gif"></div>
+						<div class="biaoqing1"><img src="img/52.gif"></div>
+						<div class="biaoqing1"><img src="img/53.gif"></div>
+						<div class="biaoqing1"><img src="img/54.gif"></div>
+						<div class="biaoqing1"><img src="img/55.gif"></div>
+						<div class="biaoqing1"><img src="img/56.gif"></div>
+						<div class="biaoqing1"><img src="img/57.gif"></div>
+						<div class="biaoqing1"><img src="img/58.gif"></div>
+						<div class="biaoqing1"><img src="img/59.gif"></div>
+						<div class="biaoqing1"><img src="img/60.gif"></div>
+						<div class="biaoqing1"><img src="img/61.gif"></div>
+						<div class="biaoqing1"><img src="img/62.gif"></div>
+						<div class="biaoqing1"><img src="img/63.gif"></div>
+						<div class="biaoqing1"><img src="img/64.gif"></div>
+						<div class="biaoqing1"><img src="img/65.gif"></div>
+						<div class="biaoqing1"><img src="img/66.gif"></div>
+						<div class="biaoqing1"><img src="img/67.gif"></div>
+						<div class="biaoqing1"><img src="img/68.gif"></div>
+						<div class="biaoqing1"><img src="img/69.gif"></div>
+						<div class="biaoqing1"><img src="img/70.gif"></div>
+						<div class="biaoqing1"><img src="img/71.gif"></div>
+						<div class="biaoqing1"><img src="img/72.gif"></div>
+						<div class="biaoqing1"><img src="img/73.gif"></div>
+						<div class="biaoqing1"><img src="img/74.gif"></div>
+						<div class="biaoqing1"><img src="img/75.gif"></div>
+						<div class="biaoqing1"><img src="img/76.gif"></div>
+						<div class="biaoqing1"><img src="img/77.gif"></div>
+						<div class="biaoqing1"><img src="img/78.gif"></div>
+						<div class="biaoqing1"><img src="img/79.gif"></div>
+						<div class="biaoqing1"><img src="img/80.gif"></div>
+						<div class="biaoqing1"><img src="img/81.gif"></div>
+						<div class="biaoqing1"><img src="img/82.gif"></div>
+						<div class="biaoqing1"><img src="img/83.gif"></div>
+						<div class="biaoqing1"><img src="img/84.gif"></div>
+						<div class="biaoqing1"><img src="img/85.gif"></div>
+						<div class="biaoqing1"><img src="img/86.gif"></div>
+						<div class="biaoqing1"><img src="img/87.gif"></div>
+						<div class="biaoqing1"><img src="img/88.gif"></div>
+						<div class="biaoqing1"><img src="img/89.gif"></div>
+						<div class="biaoqing1"><img src="img/90.gif"></div>
+						<div class="biaoqing1"><img src="img/91.gif"></div>
+						<div class="biaoqing1"><img src="img/92.gif"></div>
+						<div class="biaoqing1"><img src="img/93.gif"></div>
+						<div class="biaoqing1"><img src="img/94.gif"></div>
+						<div class="biaoqing1"><img src="img/95.gif"></div>
+						<div class="biaoqing1"><img src="img/96.gif"></div>
+						<div class="biaoqing1"><img src="img/97.gif"></div>
+						<div class="biaoqing1"><img src="img/98.gif"></div>
+						<div class="biaoqing1"><img src="img/99.gif"></div>
+						<div class="biaoqing1"><img src="img/100.gif"></div>
+						<div class="biaoqing1"><img src="img/101.gif"></div>
+						<div class="biaoqing1"><img src="img/102.gif"></div>
+						<div class="biaoqing1"><img src="img/103.gif"></div>
+						<div class="biaoqing1"><img src="img/104.gif"></div>
+						<div class="biaoqing1"><img src="img/105.gif"></div>
+						<div class="biaoqing1"><img src="img/106.gif"></div>
+						<div class="biaoqing1"><img src="img/107.gif"></div>
+						<div class="biaoqing1"><img src="img/108.gif"></div>
+						<div class="biaoqing1"><img src="img/109.gif"></div>
+						<div class="biaoqing1"><img src="img/110.gif"></div>
+					</div>
+				</div>
+				<div class="talkInp">
+					<ul class="smile">
+						<li><img src="img/tit_01.gif"></li>
+						<li class="no2"><img src="img/tit_02.gif"></li>
+						<li><img src="img/tit_03.gif"></li>
+						<li><img src="img/tit_04.gif"></li>
+						<li><img src="img/tit_05.gif"></li>
+						<li><img src="img/tit_06.gif"></li>
+						<li><img src="img/tit_07.gif"></li>
+						<li><img src="img/tit_08.gif"></li>
+						<li><img src="img/tit_09.gif"></li>
+						<li><img src="img/tit_10.gif"></li>
+						<li><img src="img/tit_11.gif"></li>
+					</ul>
+					<textarea class="area"></textarea>
+					<ul class="btn">
+						<li>关闭(c)</li>
+						<li class="send">
+							发送(s)
+							<p class="warning">发送内容不能为空，请重新输入</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="notice">
+
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var right = document.getElementsByClassName('right')[0];
+	var no2 = document.getElementsByClassName('no2')[0];
+	var fuhao= document.getElementsByClassName('fuhao')[0];
+	var allfuhao= document.getElementsByClassName('all-fuhao')[0];
+	var talkMsg = document.getElementsByClassName('talkMsg ')[0];
+	var menu = document.getElementsByClassName('menu')[0];
+	var send = document.getElementsByClassName('send')[0];
+	var area = document.getElementsByClassName('area')[0];
+	var warning = document.getElementsByClassName('warning')[0];
+	var msgBox = document.getElementById('msgBox');
+	var talk = document.getElementsByClassName('talk')[0];
+	var timer;
+	//鼠标点击出现菜单框
+	talkMsg.oncontextmenu=function(e){
+		e.preventDefault();
+		menu.style.display='block';
+		menu.style.left=e.clientX-talkMsg.offsetLeft+"px";
+		menu.style.top=e.clientY-talkMsg.offsetTop+"px";
+		talkMsg.style.overflow='visible'
+	}
+	document.onclick=function(){
+		menu.style.display='none';
+	}
+	//划上符号时显示
+	var i=0;
+	no2.onclick=function()
+	{
+		i++;
+		if(i==2)
+		{
+			fuhao.style.display='none'
+			allfuhao.style.display='none'
+			i=0;
+		}
+		else
+		{
+			fuhao.style.display='none'
+			allfuhao.style.display='block'
+		}
+
+	}
+	no2.onmouseover=function()
+	{
+		if(allfuhao.style.display!='block')
+		{
+		fuhao.style.display='block'
+		talkMsg.style.overflow='hidden'
+		}
+	}
+	no2.onmouseout=function()
+	{
+		fuhao.style.display='none'
+	}
+	fuhao.onmouseover=function()
+	{
+		fuhao.style.display='block'
+	}
+	fuhao.onmouseout=function()
+	{
+		fuhao.style.display='none'
+	}
+	allfuhao.onmouseover=function()
+	{
+		allfuhao.style.overflow='scroll'
+	}
+	allfuhao.onmouseout=function()
+	{
+		allfuhao.style.overflow='hidden'
+	}
+	// 回车发送消息
+	area.onkeydown = function(e){
+		if(e.keyCode == 13&&e.shiftKey==false){
+			send.onclick();
+			e.preventDefault();
+		}
+	}
+
+	// 点击发送按钮发送消息
+	send.onclick = function(){
+		if (area.value == '') {
+			warning.style.display = 'block';
+			clearTimeout(timer);
+			timer = setTimeout(function(){
+				warning.style.display = 'none';
+			},1000)
+		}else{
+			var li = document.createElement('li');
+			li.className = 'clearFix';
+			li.innerHTML = '<p class="time">'+new Date().toLocaleString()+'</p><p class="content"><span class="conText">'+area.value+'</span><span class="myHead"></span></p>';
+			msgBox.appendChild(li);
+			li.scrollIntoView();
+			area.value ='';
+			area.focus();
+		}
+	}
+</script>
+</html>
